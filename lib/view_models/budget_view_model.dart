@@ -19,6 +19,7 @@ class BudgetViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+
   void deleteItem(TransactionItem item) {
     final localStorage = LocalStorageService();
     // Call our localstorage service to delete the item
