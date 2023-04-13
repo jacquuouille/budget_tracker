@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (BuildContext context) {
           final themeService = Provider.of<ThemeService>(context);
-          // final budgetService = Provider.of<BudgetViewModel>(context);
+      
           return MaterialApp(
               title: 'Flutter Demo',
               theme: ThemeData(

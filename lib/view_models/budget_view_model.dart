@@ -3,13 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/transaction_item.dart';
 
 class BudgetViewModel extends ChangeNotifier {
-  // => BudgetViewModel
-  //BudgetViewModel();
-
   double getBudget() => LocalStorageService().getBudget();
   double getBalance() => LocalStorageService().getBalance();
-
-  // List<TransactionItem> _items = [];
 
   List<TransactionItem> get items => LocalStorageService().getAllTransactions();
 

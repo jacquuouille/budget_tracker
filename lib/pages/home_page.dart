@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showDialog(
@@ -214,27 +213,32 @@ class TransactionCard extends StatelessWidget {
             return Dialog(
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: Row(children: [
-                  const Text("Delete item"),
-                  const Spacer(),
-                  TextButton(
+                child: Row(
+                  children: [
+                    const Text("Delete item"),
+                    const Spacer(),
+                    TextButton(
+                        onPressed: () {
+                          final budgetViewModel = Provider.of<BudgetViewModel>(
+                              context,
+                              listen: false
+                          );
+                          budgetViewModel.deleteItem(item);
+                          Navigator.pop(context);
+                        },
+                        child: const Text("Yes")
+                    ),
+                    TextButton(
                       onPressed: () {
-                        final budgetViewModel = Provider.of<BudgetViewModel>(
-                            context,
-                            listen: false);
-                        budgetViewModel.deleteItem(item);
                         Navigator.pop(context);
                       },
-                      child: const Text("Yes")),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text("No"))
-                ]),
-              ),
-            );
-          })),
+                      child: const Text("No")
+                    ),
+                  ]),
+                ),
+              );
+            })
+          ),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 5.0, top: 5.0),
         child: Container(
